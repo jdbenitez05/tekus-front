@@ -1,0 +1,66 @@
+<br>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h3>Gestión de Clientes</h3>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-success float-right" [routerLink]="[{outlets: { modal: ['form-client'] }}]">
+                Agregar
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            ID Cliente
+                        </th>
+                        <th>
+                            Nit
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let client of clients">
+                        <td>
+                            {{client.clientId}}
+                        </td>
+                        <td>
+                            {{client.nit}}
+                        </td>
+                        <td>
+                            {{client.name}}
+                        </td>
+                        <td>
+                            {{client.email}}
+                        </td>
+                        <td>
+                            Acciones
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<router-outlet name="modal"></router-outlet>
