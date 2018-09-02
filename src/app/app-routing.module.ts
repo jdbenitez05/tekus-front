@@ -17,6 +17,11 @@ const routes: Routes = [
                 path: 'form-client',
                 component: FormClientComponent,
                 outlet: 'modal'
+            },
+            {
+                path: 'form-client/:id',
+                component: FormClientComponent,
+                outlet: 'modal'
             }
         ]
     },

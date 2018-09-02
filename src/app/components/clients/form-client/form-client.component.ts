@@ -13,8 +13,11 @@ export class FormClientComponent implements OnInit {
 
     private formClient: FormGroup;
     private _client: IClient;
-
+    private _clientId: number;
     private _loading: boolean;
+
+    private textTitle: string;
+    private textBtn: string;
 
     constructor(
         private _router: Router,
@@ -25,8 +28,18 @@ export class FormClientComponent implements OnInit {
     ngOnInit() {
         document.querySelector('body').style.overflow = 'hidden';
         this._loading = false;
+        this._clientId = this._activatedRoute.snapshot.params.id;
 
-        this._client = new IClient();
+        if(this._clientId){
+            this._client = this._clientService.getClient(this._clientId);
+            this.textTitle = 'Editar Cliente';
+            this.textBtn = 'Actualizar';
+        }else{
+            this.textTitle = 'Registrar Cliente';
+            this.textBtn = 'Registrar';
+            this._client = new IClient();
+        }
+
         this.initform();
     }
 
@@ -50,14 +63,29 @@ export class FormClientComponent implements OnInit {
 
     public saveClient(){
         if(this.formClient.valid){
-
             let client = this.formClient.value;
             this._loading = true;
-            this._clientService.postClient(client).subscribe(response => {
-                console.log('saveClient(): response: ', response);
-                this._loading = false;
-                this.cancelar();
-            });
+
+            if(this._clientId){
+
+                this._client.nit = client.nit;
+                this._client.name = client.name;
+                this._client.email = client.email;
+
+                this._clientService.putClient(this._client, this._clientId).subscribe(response => {
+                    console.log('saveClient(): response: ', response);
+                    this._loading = false;
+                    this.cancelar();
+                });
+            }else{
+
+                this._clientService.postClient(client).subscribe(response => {
+                    console.log('saveClient(): response: ', response);
+                    this._loading = false;
+                    this.cancelar();
+                });
+            }
+            
 
         }else{
             alert("Datos registrados de manera incorrecta");

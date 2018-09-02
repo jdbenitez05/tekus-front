@@ -9,6 +9,8 @@ import { IClient } from '../models/client';
 })
 export class ClientsComponent implements OnInit {
 
+    private _client: IClient;
+
     get clients(): IClient[]{
         return this._clientService._clients;
     }
@@ -23,6 +25,17 @@ export class ClientsComponent implements OnInit {
             console.log('ngOnInit(): response; ', response);
             this._clientService._clients = response;
         });
+    }
+
+    deleteClient(client: IClient){
+        this._client = client;
+
+        if(confirm('¿Esta seguro que desea eliminar el cliente: ' + client.name + '?')){
+            this._clientService.deleteClient(client).subscribe(Response => {
+                alert('Se ha eliminado el cliente');
+            });
+        }
+
     }
 
 }

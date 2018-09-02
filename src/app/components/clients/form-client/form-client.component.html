@@ -6,7 +6,7 @@
             <div class="modal-body">
 
                 <div class="col-md-12" style="text-align: center;">
-                    <h3>Registrar Cliente</h3>
+                    <h3>{{textTitle}}</h3>
                 </div>
 
                 <div class="col-md-12">
@@ -48,7 +48,7 @@
 
                     <button class="btn btn-primary float-right" [disabled]="_loading || formClient.invalid" (click)="saveClient()">
                         <i *ngIf="_loading" class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
-                        Guardar
+                        {{textBtn}}
                     </button>
                 </div>
             </div>

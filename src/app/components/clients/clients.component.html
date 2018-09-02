@@ -34,8 +34,8 @@
                         <th>
                             Email
                         </th>
-                        <th>
-                            Acciones
+                        <th style="min-width: 100px;">
+                            
                         </th>
                     </tr>
                 </thead>
@@ -54,7 +54,12 @@
                             {{client.email}}
                         </td>
                         <td>
-                            Acciones
+                            <a [routerLink]="[{outlets: { modal: ['form-client', client.clientId] }}]" class="btn btn-sm btn-primary" title="Editar">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
+                            <button (click)="deleteClient(client)" class="btn btn-sm btn-danger" title="Eliminar" style="margin-left: 10px;">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </button>
                         </td>
                     </tr>
                 </tbody>
