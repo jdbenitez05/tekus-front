@@ -48,7 +48,9 @@
                             {{client.nit}}
                         </td>
                         <td>
-                            {{client.name}}
+                            <a routerLink="../services-client/{{client.clientId}}">
+                                {{client.name}}
+                            </a>
                         </td>
                         <td>
                             {{client.email}}

@@ -7,6 +7,8 @@ export class IClient {
     public timeCreated: Date;
     public timeUpdated: Date;
 
+    public servicesClient: any[];
+
     public constructor() {
         this.clientId = null;
         this.nit = "";

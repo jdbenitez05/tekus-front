@@ -1,10 +1,51 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h3>Gestión de Servicios</h3>
+            <h3>Gestión de Servicios  {{_client.name}}</h3>
             <h6>
                 Aquí podra administrar los servicios ofrecidos por sus clientes.
             </h6>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Servicio
+                        </th>
+                        <th>
+                            Valor
+                        </th>
+                        <th>
+                            
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let sclient of _servicesClient">
+                        <td>
+                            {{sclient.serviceClientId }}
+                        </td>
+                        <td>
+                            {{sclient.serviceId}}
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

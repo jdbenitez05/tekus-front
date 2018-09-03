@@ -13,7 +13,7 @@ const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: 'services-client',
+        path: 'services-client/:id',
         component: ServicesClientComponent
     },
 
