@@ -3,7 +3,7 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h3>Gestión de Clientes</h3>
+            <h3>Configuración de Servicios</h3>
         </div>
     </div>
 
@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <a class="btn btn-success float-right" [routerLink]="[{outlets: { modal: ['form-client'] }}]">
+            <a class="btn btn-success float-right" [routerLink]="[{outlets: { modal: ['form-service'] }}]">
                 Agregar
             </a>
         </div>
@@ -23,41 +23,35 @@
                 <thead>
                     <tr>
                         <th>
-                            ID Cliente
-                        </th>
-                        <th>
-                            Nit
+                            ID Servicio
                         </th>
                         <th>
                             Nombre
                         </th>
                         <th>
-                            Email
+                            Valor
                         </th>
                         <th style="min-width: 100px;">
-                            
+
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let client of clients">
+                    <tr *ngFor="let service of services">
                         <td>
-                            {{client.clientId}}
+                            {{service.serviceId}}
                         </td>
                         <td>
-                            {{client.nit}}
+                            {{service.name}}
                         </td>
                         <td>
-                            {{client.name}}
+                            USD {{service.value | currency}}
                         </td>
                         <td>
-                            {{client.email}}
-                        </td>
-                        <td>
-                            <a [routerLink]="[{outlets: { modal: ['form-client', client.clientId] }}]" class="btn btn-sm btn-primary" title="Editar">
+                            <a [routerLink]="[{outlets: { modal: ['form-service', service.serviceId] }}]" class="btn btn-sm btn-primary" title="Editar">
                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                             </a>
-                            <button (click)="deleteClient(client)" class="btn btn-sm btn-danger" title="Eliminar" style="margin-left: 10px;">
+                            <button (click)="deleteService(service)" class="btn btn-sm btn-danger" title="Eliminar" style="margin-left: 10px;">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </button>
                         </td>

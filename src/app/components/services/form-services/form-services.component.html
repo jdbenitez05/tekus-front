@@ -1,0 +1,49 @@
+<div class="modal-backdrop" style="background-color: #0000007a;">
+    </div>
+    <div class="modal modal-2 animated fadeInDown" tabindex="-1" role="dialog" style="display: block; overflow-y: auto;">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+    
+                    <div class="col-md-12" style="text-align: center;">
+                        <h3>{{textTitle}}</h3>
+                    </div>
+    
+                    <div class="col-md-12">
+                        <form margin-top (submit)="logIn()" [formGroup]="formService">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <div class="group">
+                                        <label>Nombre</label>
+                                        <input type="text" formControlName="name" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <div class="group">
+                                        <label>Valor</label>
+                                        <input type="text" formControlName="value" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+    
+                </div>
+    
+                <div class="modal-footer">
+                    <div class="col-md-12">
+                        <button class="btn btn-default" (click)="cancelar()">
+                            Cancelar
+                        </button>
+    
+                        <button class="btn btn-primary float-right" [disabled]="_loading || formService.invalid" (click)="saveService()">
+                            <i *ngIf="_loading" class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+                            {{textBtn}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

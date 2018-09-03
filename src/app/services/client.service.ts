@@ -94,15 +94,5 @@ export class ClientService {
         let _index = this._clients.indexOf(_client);
 
         this._clients[_index] = client;
-
-        // let _study = _user.employee.studies[0].filter(x => x.studyID == study.studyID)[0];
-		// 	let _eLevel = _eduLevels.filter(x => x.educationalLevelID == study.level)[0];
-		// 	let _index = _user.employee.studies[0].indexOf(_study);
-
-		// 	study.level = _eLevel;
-
-		// 	_user.employee.studies[0][_index] = study;
-		// 	localStorage.setItem('user', JSON.stringify(_user));
-
     }
 }
